@@ -1,0 +1,935 @@
+/* =============================================================
+   NAVIGATION
+   Structure:
+     1.  Reset & Design 
+     2.  Base / Global styles
+     3.  Monogram (top-left brand mark)
+     4.  Desktop Side Navigation
+     5.  Mobile Navigation (pure CSS checkbox toggle)
+     6.  Panel System (CSS :target switching)
+     7.  Panel content wrapper
+     8.  Section Labels & Titles
+     9.  Buttons
+    10.  Home section
+    11.  About section
+    12.  Split Layout (Skills + Experience columns)
+    13.  Skills grid
+    14.  Experience timeline
+    15.  Portfolio cards
+    16.  Contact section & form
+    17.  Footer
+    18.  Animations
+    19.  Responsive breakpoints
+   ============================================================= */
+
+/* ── 1. RESET & DESIGN */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Background shades  */
+  --bg: #080d14;
+  --bg-panel: #0d1520;
+  --bg-card: #111c2a;
+  --bg-card2: #162030;
+
+  /* Subtle white border used on cards and inputs */
+  --border: rgba(255, 255, 255, 0.07);
+
+  /* Primary accent colour and its transparent variant */
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45, 212, 191, 0.15);
+
+  /* Text colours */
+  --white: #ffffff;
+  --gray-100: #e5e7eb;
+  --gray-300: #9ca3af;
+  --gray-500: #6b7280;
+
+  /* Typography */
+  --font: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Width reserved on the right for the desktop side-nav */
+  --sidenav-w: 9rem;
+
+  /* Shared border-radius for cards */
+  --radius: 0.875rem;
+}
+
+/* BASE / GLOBAL  */
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  padding-right: var(--sidenav-w); /* space for desktop side-nav */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+::selection {
+  background: var(--teal);
+  color: var(--bg);
+}
+
+/* MONOGRAM */
+.monogram {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.75rem;
+  z-index: 200;
+  font-size: 1.125rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.65rem;
+  backdrop-filter: blur(8px);
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.monogram:hover {
+  background: rgba(45, 212, 191, 0.15);
+  color: var(--teal);
+}
+.monogram:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+/* DESKTOP SIDE NAVIGATION */
+.sidenav {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--sidenav-w);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidenav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+  padding-right: 1.75rem;
+}
+.sidenav__link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-300);
+  padding: 0.375rem 0.5rem;
+  border-radius: 0.375rem;
+  transition:
+    color 0.2s,
+    background 0.2s;
+  white-space: nowrap;
+}
+.sidenav__link:hover {
+  color: var(--white);
+}
+.sidenav__link:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+/* Highlight the matching nav link when its section is :target.
+   Each rule targets the sidenav anchor whose href matches the active section. */
+#about:target ~ nav.sidenav a[href="#about"],
+#skills:target ~ nav.sidenav a[href="#skills"],
+#portfolio:target ~ nav.sidenav a[href="#portfolio"],
+#contact:target ~ nav.sidenav a[href="#contact"] {
+  color: var(--teal);
+  background: var(--teal-dim);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+}
+
+/* 5. MOBILE NAVIGATION */
+
+/* Hide the actual checkbox – only used as a CSS state toggle */
+.menu-toggle-input {
+  display: none;
+}
+
+/* Hamburger menu –  shown on mobile */
+.mobile-menu-btn {
+  display: none;
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 300;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.65rem;
+  cursor: pointer;
+}
+.mobile-menu-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--teal);
+}
+
+/* Mobile nav overlay – hidden by default */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  background: rgba(8, 13, 20, 0.97);
+  backdrop-filter: blur(16px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+/* Show the overlay when the checkbox is checked */
+.menu-toggle-input:checked ~ .mobile-nav {
+  display: flex;
+}
+
+.mobile-nav__link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gray-300);
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  transition:
+    color 0.2s,
+    background 0.2s;
+}
+.mobile-nav__link:hover {
+  color: var(--teal);
+  background: var(--teal-dim);
+}
+
+/* display:contents makes the label wrapper invisible to layout
+   so the link inside it behaves normally */
+.mobile-nav label {
+  display: contents;
+}
+
+/*PANEL SYSTEM*/
+
+/* Home panel – always visible in the background */
+.panel--home {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+/* Hide home when any other panel is :target.
+   Sections are direct children of <body>, so the general sibling
+   combinator (~) can reach .panel--home from a :target section. */
+#about:target    ~ #home,
+#skills:target   ~ #home,
+#portfolio:target ~ #home,
+#contact:target  ~ #home {
+  display: none;
+}
+
+/* All non-home panels – hidden by default */
+.panel:not(.panel--home) {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow-y: auto;
+  background: var(--bg);
+  align-items: center;
+  justify-content: center;
+  /* Entrance animation defined in section 18 */
+  animation: panelIn 0.3s ease forwards;
+}
+
+/* Show a panel when its id matches the URL hash */
+.panel:target {
+  display: flex;
+}
+
+/* Subtle radial teal glow behind overlay panels */
+.panel:not(.panel--home)::before {
+  content: "";
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(45, 212, 191, 0.05) 0%,
+    transparent 70%
+  );
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* PANEL CONTENT WRAPPER  */
+.panel__content {
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+.panel__content--center {
+  text-align: center;
+}
+.panel__content--wide {
+  max-width: 72rem;
+}
+
+/* SECTION LABELS & TITLES */
+.section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+.section-title {
+  font-size: clamp(1.875rem, 4vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 1.75rem;
+  line-height: 1.1;
+}
+.section-title--xl {
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.teal {
+  color: var(--teal);
+}
+
+/* BUTTONS*/
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.btn--teal {
+  background: var(--teal);
+  color: var(--bg);
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+.btn--teal:hover {
+  background: #25b8a6;
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(45, 212, 191, 0.45);
+}
+.btn--dark {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  border: 1px solid var(--border);
+}
+.btn--dark:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.btn--full {
+  width: 100%;
+}
+
+/* HOME SECTION  */
+.home-name {
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.home-role {
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
+  font-weight: 500;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+.home-sub {
+  font-size: 0.9375rem;
+  color: var(--gray-300);
+  font-weight: 300;
+  max-width: 30rem;
+  margin: 0 auto 1.75rem;
+  line-height: 1.6;
+}
+
+/* ABOUT SECTION */
+.about-body p {
+  font-size: 1.0625rem;
+  color: var(--gray-100);
+  font-weight: 300;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  max-width: 42rem;
+}
+.about-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* 12. SPLIT LAYOUT  */
+.split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 0 2.5rem;
+  align-items: start;
+}
+.split-col {
+  min-width: 0;
+}
+.split-divider {
+  background: var(--border);
+  align-self: stretch;
+}
+
+/*13. SKILLS GRID  */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: 0.75rem;
+}
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-100);
+  text-align: center;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    transform 0.2s;
+  cursor: default;
+}
+.skill-card:hover {
+  border-color: rgba(45, 212, 191, 0.4);
+  background: var(--bg-card2);
+  transform: translateY(-3px);
+}
+/* Small icon box inside each skill card – neutral dark so brand colours show */
+.skill-card__icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.4rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 14. EXPERIENCE TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 1rem;
+}
+/* Vertical gradient line running the full height of the timeline */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0.4375rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--teal), rgba(45, 212, 191, 0.1));
+  border-radius: 2px;
+}
+.timeline__item {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 1.75rem;
+}
+.timeline__item:last-child {
+  padding-bottom: 0;
+}
+/* Teal dot positioned over the vertical line */
+.timeline__dot {
+  flex-shrink: 0;
+  margin-top: 0.4rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 10px rgba(45, 212, 191, 0.5);
+  position: relative;
+  z-index: 1;
+}
+.timeline__body {
+  flex: 1;
+}
+.timeline__date {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.02em;
+  margin-bottom: 0.375rem;
+}
+.timeline__role {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.timeline__company {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--gray-300);
+  margin-bottom: 0.625rem;
+}
+.timeline__desc {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/*15. PORTFOLIO CARDS  */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition:
+    border-color 0.25s,
+    background 0.25s,
+    transform 0.2s;
+}
+.project-card:hover {
+  border-color: rgba(45, 212, 191, 0.35);
+  background: var(--bg-card2);
+  transform: translateY(-3px);
+}
+.project-card__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.project-card__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Technology tag pills */
+.tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.625rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+.tag--angular {
+  background: rgba(236, 72, 153, 0.15);
+  color: #f472b6;
+  border: 1px solid rgba(236, 72, 153, 0.25);
+}
+.tag--flutter {
+  background: var(--teal-dim);
+  color: var(--teal);
+  border: 1px solid rgba(45, 212, 191, 0.25);
+}
+
+/* Arrow link in the top-right corner of each card */
+.project-card__arrow {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-300);
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
+}
+.project-card__arrow:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  background: var(--teal-dim);
+}
+.project-card__arrow:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.project-card__title {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--white);
+  transition: color 0.2s;
+}
+.project-card:hover .project-card__title {
+  color: var(--teal);
+}
+.project-card__desc {
+  font-size: 0.9375rem;
+  color: var(--gray-500);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/*16. CONTACT SECTION & FORM  */
+.contact-sub {
+  text-align: center;
+  font-size: 0.9375rem;
+  color: var(--gray-300);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+.contact-info__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.625rem;
+}
+.contact-info__sub {
+  font-size: 0.9375rem;
+  color: var(--gray-300);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.contact-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+/* Each contact card: teal icon box + label/value */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.125rem 1.25rem;
+  transition: border-color 0.2s;
+}
+.contact-card:hover {
+  border-color: rgba(45, 212, 191, 0.3);
+}
+.contact-card__icon {
+  flex-shrink: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.625rem;
+  background: var(--teal-dim);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--teal);
+}
+.contact-card__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+}
+.contact-card__value {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--white);
+}
+a.contact-card__value:hover {
+  color: var(--teal);
+  text-decoration: underline;
+}
+a.contact-card__value:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Contact form */
+.contact-form__title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-300);
+}
+.form-group label span {
+  color: var(--teal);
+}
+.form-group input,
+.form-group textarea {
+  padding: 0.7rem 0.9rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  font-family: var(--font);
+  color: var(--white);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  resize: vertical;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--gray-500);
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.12);
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 1.75rem 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--gray-500);
+}
+
+/*ANIMATIONS */
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* .fade-up is kept in HTML for readability but is always visible
+   since there is no JavaScript to add a "visible" class. */
+.fade-up {
+  opacity: 1;
+  transform: none;
+}
+
+/* SCROLL HINT (mouse icon)*/
+.scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  /* Fade the whole hint in and out to keep it subtle */
+  animation: scrollFade 2.5s ease-in-out infinite;
+}
+
+/* Outer mouse body – white rounded rectangle with a notch at the top */
+.scroll-hint__mouse {
+  width: 1.5rem;
+  height: 2.375rem;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 0.35rem;
+}
+
+/* Dot inside the mouse – bounces downward to suggest scrolling/clicking */
+.scroll-hint__dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: scrollDot 2.5s ease-in-out infinite;
+}
+
+/* Small label below the mouse */
+.scroll-hint__label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Dot bounces from top to bottom of the mouse body */
+@keyframes scrollDot {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(0.75rem);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Whole widget pulses opacity so it doesn't distract */
+@keyframes scrollFade {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/*  RESPONSIVE BREAKPOINTS  */
+@media (max-width: 767px) {
+  body {
+    padding-right: 0;
+  }
+  .sidenav {
+    display: none;
+  }
+  /* Show the hamburger label on mobile */
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .panel__content {
+    padding: 4.5rem 1.25rem 2.5rem;
+  }
+  .home-name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  /* Stack the two columns vertically on mobile */
+  .split-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem 0;
+  }
+  /* Divider becomes a horizontal line when stacked */
+  .split-divider {
+    height: 1px;
+    width: 100%;
+    align-self: auto;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .about-actions {
+    flex-direction: column;
+  }
+  .about-actions .btn {
+    text-align: center;
+  }
+}
+
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .contact-layout {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}
