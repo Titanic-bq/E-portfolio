@@ -9,9 +9,12 @@
     <meta
       name="description"
       content="Hendrik Jürgenson – Junior Software Developer. Angular, Flutter, NodeJs, AWS and more."
+      data-i18n-content="page.description"
     />
 
-    <title>Hendrik Jürgenson | Junior Software Developer</title>
+    <title data-i18n="page.title">
+      Hendrik Jürgenson | Junior Software Developer
+    </title>
 
     <!-- Preconnect hints speed up the Google Fonts request -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,14 +28,28 @@
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css" />
+    <script src="language.js" defer></script>
   </head>
   <body>
     <!-- ─────────────────────────────────────────────────────────
          MONOGRAM 
     ──────────────────────────────────────────────────────────── -->
-    <a href="#home" class="monogram" aria-label="Hendrik Jürgenson – go to home"
+    <a
+      href="#home"
+      class="monogram"
+      aria-label="Hendrik Jürgenson – go to home"
+      data-i18n-aria-label="navigation.homeLabel"
       >HJ</a
     >
+    <div
+      class="language-switch"
+      role="group"
+      aria-label="Choose language"
+      data-i18n-aria-label="language.group"
+    >
+      <button type="button" data-language="en" aria-pressed="true">EN</button>
+      <button type="button" data-language="et" aria-pressed="false">ET</button>
+    </div>
 
     <!-- ─────────────────────────────────────────────────────────
          MOBILE MENU 
@@ -47,6 +64,7 @@
       for="menuToggle"
       class="mobile-menu-btn"
       aria-label="Toggle navigation"
+      data-i18n-aria-label="navigation.toggle"
     >
       <span></span>
       <span></span>
@@ -54,34 +72,49 @@
     </label>
 
     <!-- Full-screen mobile nav – shown when #menuToggle is checked -->
-    <nav class="mobile-nav" aria-label="Mobile navigation">
+    <nav
+      class="mobile-nav"
+      aria-label="Mobile navigation"
+      data-i18n-aria-label="navigation.mobile"
+    >
       <ul role="list">
         <!-- Each link is wrapped in a label so clicking it also unchecks the toggle -->
         <li>
           <label for="menuToggle"
-            ><a href="#home" class="mobile-nav__link">Home</a></label
-          >
-        </li>
-        <li>
-          <label for="menuToggle"
-            ><a href="#about" class="mobile-nav__link">About</a></label
-          >
-        </li>
-        <li>
-          <label for="menuToggle"
-            ><a href="#skills" class="mobile-nav__link"
-              >Skills &amp; Experience</a
+            ><a href="#home" class="mobile-nav__link" data-i18n="nav.home"
+              >Home</a
             ></label
           >
         </li>
         <li>
           <label for="menuToggle"
-            ><a href="#portfolio" class="mobile-nav__link">Portfolio</a></label
+            ><a href="#about" class="mobile-nav__link" data-i18n="nav.about"
+              >About</a
+            ></label
           >
         </li>
         <li>
           <label for="menuToggle"
-            ><a href="#contact" class="mobile-nav__link">Contact</a></label
+            ><a href="#skills" class="mobile-nav__link" data-i18n="nav.skills"
+              >Skills &amp; Tools</a
+            ></label
+          >
+        </li>
+        <li>
+          <label for="menuToggle"
+            ><a
+              href="#portfolio"
+              class="mobile-nav__link"
+              data-i18n="nav.portfolio"
+              >Portfolio</a
+            ></label
+          >
+        </li>
+        <li>
+          <label for="menuToggle"
+            ><a href="#contact" class="mobile-nav__link" data-i18n="nav.contact"
+              >Contact</a
+            ></label
           >
         </li>
       </ul>
@@ -90,13 +123,33 @@
     <!-- ─────────────────────────────────────────────────────────
          DESKTOP SIDE-NAV
     ──────────────────────────────────────────────────────────── -->
-    <nav class="sidenav" aria-label="Main navigation">
+    <nav
+      class="sidenav"
+      aria-label="Main navigation"
+      data-i18n-aria-label="navigation.main"
+    >
       <ul role="list">
-        <li><a href="#home" class="sidenav__link">Home</a></li>
-        <li><a href="#about" class="sidenav__link">About</a></li>
-        <li><a href="#skills" class="sidenav__link">Skills &amp; Exp</a></li>
-        <li><a href="#portfolio" class="sidenav__link">Portfolio</a></li>
-        <li><a href="#contact" class="sidenav__link">Contact</a></li>
+        <li>
+          <a href="#home" class="sidenav__link" data-i18n="nav.home">Home</a>
+        </li>
+        <li>
+          <a href="#about" class="sidenav__link" data-i18n="nav.about">About</a>
+        </li>
+        <li>
+          <a href="#skills" class="sidenav__link" data-i18n="nav.skills"
+            >Skills &amp; Tools</a
+          >
+        </li>
+        <li>
+          <a href="#portfolio" class="sidenav__link" data-i18n="nav.portfolio"
+            >Portfolio</a
+          >
+        </li>
+        <li>
+          <a href="#contact" class="sidenav__link" data-i18n="nav.contact"
+            >Contact</a
+          >
+        </li>
       </ul>
     </nav>
 
@@ -108,217 +161,174 @@
            ABOUT PANEL
       ═══════════════════════════════════════════════════════════ -->
     <section id="about" class="panel" aria-labelledby="about-heading">
-      <div class="panel__content">
-        <p class="section-label">About Me</p>
+      <div class="panel__content about-content">
+        <p class="section-label" data-i18n="about.label">About Me</p>
         <h2 id="about-heading" class="section-title">Hendrik Jürgenson</h2>
-        <div class="about-body">
-          <p>
-            I'm a passionate Junior Software Developer with a strong foundation
-            in web development and a computer like work. Currently, I am
-            learning in Tartu Rakenduslik Kolledž, where I am expanding my
-            knowledge in various programming languages. I love doing work with
-            others who have the same interest as I have.
-          </p>
-          <p>
-            My journey in software development began during summer, where I
-            discovered that I would like to work as a developer. Since then,
-            I've been dedicated my time towards understanding code and learning
-            from others, staying in touch with trends and best practices.
-          </p>
-          <div class="about-actions">
-            <a href="#skills" class="btn btn--teal">View Experience</a>
-            <a href="#skills" class="btn btn--dark">My Skills</a>
+        <div class="about-layout">
+          <figure class="about-voco">
+            <img src="OIP.webp" alt="VOCO IT-kool logo" />
+          </figure>
+          <div class="about-body">
+            <p data-i18n="about.intro">
+              I'm a Junior Software Developer with a interest in web development
+              and a computer like work. Currently, I am learning in Tartu
+              Rakenduslik Kolledž, where I am studying in various programming
+              languages. I like doing work with others who have different
+              opinions and views than me, because I can learn from them and
+              improve my skills.
+            </p>
+            <p data-i18n="about.journey">
+              My journey started during summer. Since then, I've dedicated my
+              time towards code development and learning from others, who are
+              better in coding than me.
+            </p>
+            <div class="about-actions">
+              <a
+                href="#skills"
+                class="btn btn--teal"
+                data-i18n="about.skillsButton"
+                >View Skills</a
+              >
+              <a
+                href="#portfolio"
+                class="btn btn--dark"
+                data-i18n="about.projectsButton"
+                >My Projects</a
+              >
+            </div>
           </div>
+          <figure class="about-portrait">
+            <img
+              src="20260828_121736.jpg"
+              alt="Hendrik Jürgenson"
+              data-i18n-alt="about.portraitAlt"
+            />
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- ══════════════════════════════════════════════════════
-           SKILLS & EXPERIENCE PANEL  (merged into one section)
+           SKILLS PANEL
       ═══════════════════════════════════════════════════════════ -->
     <section id="skills" class="panel" aria-labelledby="skills-heading">
-      <!-- panel__content--wide increases max-width to fit both columns -->
-      <div class="panel__content panel__content--wide">
-        <div class="split-layout">
-          <!-- ── LEFT COLUMN: Skills ── -->
-          <div class="split-col">
-            <p class="section-label">What have I learned</p>
-            <h2 id="skills-heading" class="section-title">
-              My <span class="teal">Skills</span>
-            </h2>
+      <div class="panel__content panel__content--wide skills-content">
+        <p class="section-label" data-i18n="skills.label">Skills &amp; Tools</p>
+        <h2 id="skills-heading" class="section-title">
+          <span data-i18n="skills.titlePrefix">My </span
+          ><span class="teal" data-i18n="skills.title">Skills &amp; Tools</span>
+        </h2>
+        <p class="skills-intro" data-i18n="skills.intro">
+          Tools what I have worked with and I am familiar with. I am always open
+          to learn new tools and technologies.
+        </p>
 
-            <ul class="skills-grid" role="list" aria-label="Technical skills">
-              <!-- Node.js – hexagon logo shape -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#68a063"
-                  >
-                    <path
-                      d="M12 1.85L2 7.27v9.46l10 5.42 10-5.42V7.27L12 1.85zm0 2.3l7.5 4.07v8.14L12 20.43l-7.5-4.07V8.22L12 4.15zm0 2.08L6.5 9.5v5l5.5 3 5.5-3v-5L12 6.23zm0 2.08l3.5 1.9v3.58L12 15.7l-3.5-1.9V10.2L12 8.31z"
-                    />
-                  </svg>
-                </span>
-                <span>Node.js</span>
-              </li>
+        <ul
+          class="skills-grid"
+          role="list"
+          aria-label="Technical skills"
+          data-i18n-aria-label="skills.listLabel"
+        >
+          <!-- Node.js – hexagon logo shape -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--node" viewBox="0 0 24 24">
+                <path
+                  d="M12 1.85L2 7.27v9.46l10 5.42 10-5.42V7.27L12 1.85zm0 2.3l7.5 4.07v8.14L12 20.43l-7.5-4.07V8.22L12 4.15zm0 2.08L6.5 9.5v5l5.5 3 5.5-3v-5L12 6.23zm0 2.08l3.5 1.9v3.58L12 15.7l-3.5-1.9V10.2L12 8.31z"
+                />
+              </svg>
+            </span>
+            <span>Node.js</span>
+          </li>
 
-              <!-- MongoDB – leaf logo -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#47a248"
-                  >
-                    <path
-                      d="M12 2C9.5 2 7 4.5 7 9c0 3.5 2 6.5 4.5 8.5l.5.4.5-.4C14 15.5 17 12.5 17 9c0-4.5-2.5-7-5-7zm0 14.5C10 14.5 9 12 9 9c0-3.5 1.5-5 3-5s3 1.5 3 5c0 3-1 5.5-3 7.5zm-.5 3.5v-2h1v2h-1z"
-                    />
-                  </svg>
-                </span>
-                <span>MongoDB</span>
-              </li>
+          <!-- MongoDB – leaf logo -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--mongodb" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C9.5 2 7 4.5 7 9c0 3.5 2 6.5 4.5 8.5l.5.4.5-.4C14 15.5 17 12.5 17 9c0-4.5-2.5-7-5-7zm0 14.5C10 14.5 9 12 9 9c0-3.5 1.5-5 3-5s3 1.5 3 5c0 3-1 5.5-3 7.5zm-.5 3.5v-2h1v2h-1z"
+                />
+              </svg>
+            </span>
+            <span>MongoDB</span>
+          </li>
 
-              <!-- React – atom logo -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#61dafb"
-                  >
-                    <path
-                      d="M12 10.11A1.89 1.89 0 1 1 10.11 12 1.89 1.89 0 0 1 12 10.11M7.37 20c.63.38 2-.2 3.6-1.7a24.22 24.22 0 0 1-1.51-1.9A22.7 22.7 0 0 1 7.06 16c-.51 2.14-.32 3.61.31 4m.71-5.74-.29-.51a7.91 7.91 0 0 0-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.53.51 1.06 1.18 1.51 1.9.82.08 1.63.2 2.4.39.51-2.14.32-3.61-.32-3.99m-.7 5.74.29.51c.11-.29.21-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1 5.63 2.54.75 4.37 2 4.37 3.68s-1.83 2.93-4.37 3.68c.63 2.58.47 4.79-1 5.63s-3.45-.12-5.38-1.95c-1.93 1.83-3.91 2.79-5.38 1.95s-1.63-3.05-1-5.63C3.08 14.93 1.25 13.68 1.25 12s1.83-2.93 4.37-3.68c-.63-2.58-.47-4.79 1-5.63s3.45.12 5.38 1.95c1.93-1.83 3.91-2.79 5.38-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26s-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26-.3.51c.31-.05.61-.1.88-.16a7.35 7.35 0 0 0-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 3 2.08 3.59 1.7.64-.38.83-1.85.32-3.99-.77.19-1.58.31-2.4.39-.45.72-.98 1.39-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16.08.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 7.9 3.62 7.37 4c-.63.38-.82 1.85-.31 3.99a22.7 22.7 0 0 1 2.4-.39 24.22 24.22 0 0 1 1.51-1.9z"
-                    />
-                  </svg>
-                </span>
-                <span>React</span>
-              </li>
+          <!-- React – atom logo -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--react" viewBox="0 0 24 24">
+                <path
+                  d="M12 10.11A1.89 1.89 0 1 1 10.11 12 1.89 1.89 0 0 1 12 10.11M7.37 20c.63.38 2-.2 3.6-1.7a24.22 24.22 0 0 1-1.51-1.9A22.7 22.7 0 0 1 7.06 16c-.51 2.14-.32 3.61.31 4m.71-5.74-.29-.51a7.91 7.91 0 0 0-.29.86c.27.06.57.11.88.16l-.3-.51m6.54-.76.81-1.5-.81-1.5c-.3-.53-.62-1-.91-1.47C13.17 9 12.6 9 12 9s-1.17 0-1.71.03c-.29.47-.61.94-.91 1.47L8.57 12l.81 1.5c.3.53.62 1 .91 1.47.54.03 1.11.03 1.71.03s1.17 0 1.71-.03c.29-.47.61-.94.91-1.47M12 6.78c-.19.22-.39.45-.59.72h1.18c-.2-.27-.4-.5-.59-.72m0 10.44c.19-.22.39-.45.59-.72h-1.18c.2.27.4.5.59.72M16.62 4c-.62-.38-2 .2-3.59 1.7.53.51 1.06 1.18 1.51 1.9.82.08 1.63.2 2.4.39.51-2.14.32-3.61-.32-3.99m-.7 5.74.29.51c.11-.29.21-.58.29-.86-.27-.06-.57-.11-.88-.16l.3.51m1.45-7.05c1.47.84 1.63 3.05 1 5.63 2.54.75 4.37 2 4.37 3.68s-1.83 2.93-4.37 3.68c.63 2.58.47 4.79-1 5.63s-3.45-.12-5.38-1.95c-1.93 1.83-3.91 2.79-5.38 1.95s-1.63-3.05-1-5.63C3.08 14.93 1.25 13.68 1.25 12s1.83-2.93 4.37-3.68c-.63-2.58-.47-4.79 1-5.63s3.45.12 5.38 1.95c1.93-1.83 3.91-2.79 5.38-1.95M17.08 12c.34.75.64 1.5.89 2.26 2.1-.63 3.28-1.53 3.28-2.26s-1.18-1.63-3.28-2.26c-.25.76-.55 1.51-.89 2.26M6.92 12c-.34-.75-.64-1.5-.89-2.26-2.1.63-3.28 1.53-3.28 2.26s1.18 1.63 3.28 2.26c.25-.76.55-1.51.89-2.26m9 2.26-.3.51c.31-.05.61-.1.88-.16a7.35 7.35 0 0 0-.29-.86l-.29.51m-2.89 4.04c1.59 1.5 3 2.08 3.59 1.7.64-.38.83-1.85.32-3.99-.77.19-1.58.31-2.4.39-.45.72-.98 1.39-1.51 1.9M8.08 9.74l.3-.51c-.31.05-.61.1-.88.16.08.28.18.57.29.86l.29-.51m2.89-4.04C9.38 4.2 7.9 3.62 7.37 4c-.63.38-.82 1.85-.31 3.99a22.7 22.7 0 0 1 2.4-.39 24.22 24.22 0 0 1 1.51-1.9z"
+                />
+              </svg>
+            </span>
+            <span>React</span>
+          </li>
 
-              <!-- HTML5 – shield logo -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#e34f26"
-                  >
-                    <path
-                      d="M4.136 3h15.728l-1.432 16.054L12 21l-6.432-1.946L4.136 3zm2.195 2l1.07 11.99L12 18.5l4.6-1.51 1.07-11.99H6.33zm8.35 4H9.33l.12 1.5h5.1l-.36 4.02-2.19.6-2.19-.6-.15-1.68H8.17l.27 3 3.56.99 3.56-.99.48-5.34.12-1.5z"
-                    />
-                  </svg>
-                </span>
-                <span>HTML</span>
-              </li>
+          <!-- HTML5 – shield logo -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--html" viewBox="0 0 24 24">
+                <path
+                  d="M4.136 3h15.728l-1.432 16.054L12 21l-6.432-1.946L4.136 3zm2.195 2l1.07 11.99L12 18.5l4.6-1.51 1.07-11.99H6.33zm8.35 4H9.33l.12 1.5h5.1l-.36 4.02-2.19.6-2.19-.6-.15-1.68H8.17l.27 3 3.56.99 3.56-.99.48-5.34.12-1.5z"
+                />
+              </svg>
+            </span>
+            <span>HTML</span>
+          </li>
 
-              <!-- CSS3 – shield logo -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#1572b6"
-                  >
-                    <path
-                      d="M4.136 3h15.728l-1.432 16.054L12 21l-6.432-1.946L4.136 3zm2.195 2l1.07 11.99L12 18.5l4.6-1.51 1.07-11.99H6.33zm7.55 4.1H9.33l.12 1.5h4.35l-.12 1.38-1.68.45-1.68-.45-.12-1.2H8.7l.24 2.7 3.06.84 3.06-.84.42-4.38H13.88z"
-                    />
-                  </svg>
-                </span>
-                <span>CSS</span>
-              </li>
+          <!-- CSS3 – shield logo -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--css" viewBox="0 0 24 24">
+                <path
+                  d="M4.136 3h15.728l-1.432 16.054L12 21l-6.432-1.946L4.136 3zm2.195 2l1.07 11.99L12 18.5l4.6-1.51 1.07-11.99H6.33zm7.55 4.1H9.33l.12 1.5h4.35l-.12 1.38-1.68.45-1.68-.45-.12-1.2H8.7l.24 2.7 3.06.84 3.06-.84.42-4.38H13.88z"
+                />
+              </svg>
+            </span>
+            <span>CSS</span>
+          </li>
 
-              <!-- JavaScript – JS badge -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#f7df1e"
-                  >
-                    <rect width="24" height="24" rx="2" fill="#f7df1e" />
-                    <path
-                      d="M7 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7l-.6-.3C6.9 14.8 6 14 6 12.4c0-1.5 1.1-2.6 2.9-2.6 1.2 0 2.1.4 2.7 1.5l-1.5.9c-.3-.5-.6-.7-1.2-.7-.6 0-.9.3-.9.7 0 .5.3.7 1.3 1.2l.6.3c1.6.7 2.5 1.5 2.5 3.1 0 1.8-1.4 2.8-3.3 2.8-1.8 0-3-.9-3.6-2.1L7 17.5zm7.5.2c.5.8 1.1 1.4 2.3 1.4 1 0 1.6-.5 1.6-1.1 0-.8-.6-1.1-1.7-1.6l-.6-.2c-1.7-.7-2.8-1.6-2.8-3.5 0-1.7 1.3-3 3.3-3 1.4 0 2.4.5 3.1 1.8l-1.7 1.1c-.4-.7-.8-1-1.4-1-.7 0-1.1.4-1.1.9 0 .6.4.9 1.4 1.3l.6.3c2 .8 3.1 1.7 3.1 3.6 0 2-1.6 3-3.7 3-2.1 0-3.4-1-4-2.4l1.6-.9z"
-                    />
-                  </svg>
-                </span>
-                <span>JavaScript</span>
-              </li>
+          <!-- JavaScript – JS badge -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg
+                class="skill-icon skill-icon--javascript"
+                viewBox="0 0 24 24"
+              >
+                <rect width="24" height="24" rx="2" />
+                <path
+                  d="M7 17.5c.4.7 1 1.2 2 1.2 1.1 0 1.7-.5 1.7-1.3 0-.9-.7-1.2-1.8-1.7l-.6-.3C6.9 14.8 6 14 6 12.4c0-1.5 1.1-2.6 2.9-2.6 1.2 0 2.1.4 2.7 1.5l-1.5.9c-.3-.5-.6-.7-1.2-.7-.6 0-.9.3-.9.7 0 .5.3.7 1.3 1.2l.6.3c1.6.7 2.5 1.5 2.5 3.1 0 1.8-1.4 2.8-3.3 2.8-1.8 0-3-.9-3.6-2.1L7 17.5zm7.5.2c.5.8 1.1 1.4 2.3 1.4 1 0 1.6-.5 1.6-1.1 0-.8-.6-1.1-1.7-1.6l-.6-.2c-1.7-.7-2.8-1.6-2.8-3.5 0-1.7 1.3-3 3.3-3 1.4 0 2.4.5 3.1 1.8l-1.7 1.1c-.4-.7-.8-1-1.4-1-.7 0-1.1.4-1.1.9 0 .6.4.9 1.4 1.3l.6.3c2 .8 3.1 1.7 3.1 3.6 0 2-1.6 3-3.7 3-2.1 0-3.4-1-4-2.4l1.6-.9z"
+                />
+              </svg>
+            </span>
+            <span>JavaScript</span>
+          </li>
 
-              <!-- WordPress – WP logo -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#21759b"
-                  >
-                    <path
-                      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM3.5 12c0-1.232.256-2.405.712-3.469L7.6 18.6A8.5 8.5 0 0 1 3.5 12zm8.5 8.5a8.46 8.46 0 0 1-2.4-.347l2.548-7.4 2.61 7.153a.42.42 0 0 0 .032.061A8.464 8.464 0 0 1 12 20.5zm1.172-11.234c.512-.027.973-.08.973-.08.458-.054.404-.727-.054-.7 0 0-1.376.108-2.265.108-.835 0-2.238-.108-2.238-.108-.458-.027-.512.673-.054.7 0 0 .434.053.892.08l1.325 3.63-1.862 5.584-3.098-9.214c.512-.027.973-.08.973-.08.458-.054.404-.727-.054-.7 0 0-1.376.108-2.265.108a9.5 9.5 0 0 0-.35.007A8.5 8.5 0 0 1 12 3.5c2.227 0 4.258.855 5.782 2.253a3.4 3.4 0 0 0-.054-.003c-.835 0-1.427.727-1.427 1.508 0 .7.404 1.292.835 1.993.323.566.7 1.293.7 2.346 0 .727-.28 1.57-.647 2.75l-.85 2.835-3.167-9.416zm3.484 9.862l2.594-7.5c.485-1.212.646-2.18.646-3.044 0-.313-.02-.604-.058-.878A8.5 8.5 0 0 1 20.5 12a8.47 8.47 0 0 1-3.844 7.128z"
-                    />
-                  </svg>
-                </span>
-                <span>WordPress</span>
-              </li>
+          <!-- WordPress – WP logo -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--wordpress" viewBox="0 0 24 24">
+                <path
+                  d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM3.5 12c0-1.232.256-2.405.712-3.469L7.6 18.6A8.5 8.5 0 0 1 3.5 12zm8.5 8.5a8.46 8.46 0 0 1-2.4-.347l2.548-7.4 2.61 7.153a.42.42 0 0 0 .032.061A8.464 8.464 0 0 1 12 20.5zm1.172-11.234c.512-.027.973-.08.973-.08.458-.054.404-.727-.054-.7 0 0-1.376.108-2.265.108-.835 0-2.238-.108-2.238-.108-.458-.027-.512.673-.054.7 0 0 .434.053.892.08l1.325 3.63-1.862 5.584-3.098-9.214c.512-.027.973-.08.973-.08.458-.054.404-.727-.054-.7 0 0-1.376.108-2.265.108a9.5 9.5 0 0 0-.35.007A8.5 8.5 0 0 1 12 3.5c2.227 0 4.258.855 5.782 2.253a3.4 3.4 0 0 0-.054-.003c-.835 0-1.427.727-1.427 1.508 0 .7.404 1.292.835 1.993.323.566.7 1.293.7 2.346 0 .727-.28 1.57-.647 2.75l-.85 2.835-3.167-9.416zm3.484 9.862l2.594-7.5c.485-1.212.646-2.18.646-3.044 0-.313-.02-.604-.058-.878A8.5 8.5 0 0 1 20.5 12a8.47 8.47 0 0 1-3.844 7.128z"
+                />
+              </svg>
+            </span>
+            <span>WordPress</span>
+          </li>
 
-              <!-- cPanel – server/panel icon -->
-              <li class="skill-card">
-                <span class="skill-card__icon" aria-hidden="true">
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="20"
-                    height="20"
-                    fill="#ff6c2c"
-                  >
-                    <path
-                      d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7zm4-8h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6z"
-                    />
-                  </svg>
-                </span>
-                <span>cPanel</span>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Visual divider between the two columns (hidden from assistive tech) -->
-          <div class="split-divider" aria-hidden="true"></div>
-
-          <!-- ── RIGHT COLUMN: Experience ── -->
-          <div class="split-col">
-            <p class="section-label">Career</p>
-            <h2 id="exp-heading" class="section-title">
-              Work <span class="teal">Experience</span>
-            </h2>
-
-            <!-- Ordered list – most recent role first.
-                   datetime on <time> provides machine-readable dates. -->
-            <ol class="timeline" aria-label="Work experience">
-              <li class="timeline__item">
-                <div class="timeline__dot" aria-hidden="true"></div>
-                <div class="timeline__body">
-                  <time class="timeline__date" datetime="2025-02"
-                    >February 2025 – May 2026</time
-                  >
-                  <h3 class="timeline__role">Website Tester</h3>
-                  <p class="timeline__company">Client Project</p>
-                  <p class="timeline__desc">
-                    Worked on a client project in Tartu Rakenduslik Kolledž. I
-                    was a partial tester and designer in a three-member group,
-                    where I tested website functionality and requirements.
-                  </p>
-                </div>
-              </li>
-            </ol>
-          </div>
-        </div>
-        <!-- end split-layout -->
+          <!-- cPanel – server/panel icon -->
+          <li class="skill-card">
+            <span class="skill-card__icon" aria-hidden="true">
+              <svg class="skill-icon skill-icon--cpanel" viewBox="0 0 24 24">
+                <path
+                  d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-1 16H5V5h14v14zM7 7h2v2H7zm0 4h2v2H7zm0 4h2v2H7zm4-8h6v2h-6zm0 4h6v2h-6zm0 4h6v2h-6z"
+                />
+              </svg>
+            </span>
+            <span>cPanel</span>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -328,39 +338,52 @@
       ═══════════════════════════════════════════════════════════ -->
     <section id="portfolio" class="panel" aria-labelledby="portfolio-heading">
       <div class="panel__content">
-        <p class="section-label">My portfolio</p>
+        <p class="section-label" data-i18n="portfolio.label">My portfolio</p>
         <h2 id="portfolio-heading" class="section-title">
-          Recent <span class="teal">Projects</span>
+          <span data-i18n="portfolio.titlePrefix">Recent </span
+          ><span class="teal" data-i18n="portfolio.title">Projects</span>
         </h2>
 
         <ul class="projects-grid" role="list">
           <!-- Project 1: My hobby website -->
           <li class="project-card">
             <div class="project-card__top">
-              <div class="project-card__tags"></div>
+              <p class="project-card__hint" data-i18n="project.liveDemoHint">
+                Leads to live Demo
+              </p>
               <a
-                href="https://github.com/Titanic-bq/Male-hobileht"
+                href="https://titanic-bq.github.io/Male-hobileht/"
                 class="project-card__arrow"
-                aria-label="View My Hobby Website"
+                aria-label="Open My Hobby Website live demo"
+                data-i18n-aria-label="project.hobby.demoLabel"
               >
                 <!-- Arrow SVG (Lucide Icons) – diagonal arrow-up-right -->
                 <svg
-                  width="16"
-                  height="16"
+                  class="project-arrow-icon"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                   aria-hidden="true"
                 >
                   <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>
             </div>
-            <h3 class="project-card__title">My Hobby Website</h3>
-            <p class="project-card__desc">
+            <h3 class="project-card__title" data-i18n="project.hobby.title">
+              My Hobby Website
+            </h3>
+            <a
+              class="project-preview"
+              href="https://titanic-bq.github.io/Male-hobileht/"
+              aria-label="Open My Hobby Website live demo"
+              data-i18n-aria-label="project.hobby.demoLabel"
+            >
+              <img
+                src="https://raw.githubusercontent.com/Titanic-bq/Male-hobileht/main/img/avalehetaust.jpg"
+                alt="Chess-themed homepage artwork from My Hobby Website"
+                data-i18n-alt="project.hobby.imageAlt"
+                loading="lazy"
+              />
+            </a>
+            <p class="project-card__desc" data-i18n="project.hobby.description">
               A personal website showcasing my hobbies and interests. The theme
               is centered around chess, where I share my passion for the game.
             </p>
@@ -369,64 +392,81 @@
           <!-- Project 2: Multiple page hotel website -->
           <li class="project-card">
             <div class="project-card__top">
-              <div class="project-card__tags"></div>
+              <p class="project-card__hint" data-i18n="project.liveDemoHint">
+                Leads to live Demo
+              </p>
               <a
-                href="https://github.com/Titanic-bq/Mitmeleheline-hotell"
+                href="https://titanic-bq.github.io/Mitmeleheline-hotell/Sisu/"
                 class="project-card__arrow"
-                aria-label="View Multiple Page Hotel Website"
+                aria-label="Open Multiple Page Hotel Website live demo"
+                data-i18n-aria-label="project.hotel.demoLabel"
               >
                 <svg
-                  width="16"
-                  height="16"
+                  class="project-arrow-icon"
                   viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
                   aria-hidden="true"
                 >
                   <path d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </a>
             </div>
-            <h3 class="project-card__title">Multiple Page Hotel Website</h3>
-            <p class="project-card__desc">
+            <h3 class="project-card__title" data-i18n="project.hotel.title">
+              Multiple Page Hotel Website
+            </h3>
+            <a
+              class="project-preview"
+              href="https://titanic-bq.github.io/Mitmeleheline-hotell/Sisu/"
+              aria-label="Open Multiple Page Hotel Website live demo"
+              data-i18n-aria-label="project.hotel.demoLabel"
+            >
+              <img
+                src="https://raw.githubusercontent.com/Titanic-bq/Mitmeleheline-hotell/main/Sisu/img/showcase.jpg"
+                alt="Hotel showcase image from the hotel website project"
+                data-i18n-alt="project.hotel.imageAlt"
+                loading="lazy"
+              />
+            </a>
+            <p class="project-card__desc" data-i18n="project.hotel.description">
               A responsive website for a hotel chain with multiple pages,
               including booking functionality and a modern design.
             </p>
           </li>
 
-          <!-- Project 3: Client Project -->
+          <!-- Project 3: TechHub -->
           <li class="project-card">
             <div class="project-card__top">
               <div class="project-card__tags"></div>
-              <!-- href comes when the client provides the website url -->
-              <a
-                href="#"
-                class="project-card__arrow"
-                aria-label="View Client Project"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </a>
             </div>
-            <h3 class="project-card__title">Client Project</h3>
-            <p class="project-card__desc">
-              I was a tester and a designer in a three member group, where I
-              tested client functionality and requirements.
+            <h3 class="project-card__title" data-i18n="project.techhub.title">
+              TechHub.dk
+            </h3>
+            <a
+              class="project-preview project-preview--no-arrow"
+              href="https://github.com/Titanic-bq/TechHub"
+              aria-label="Open TechHub source on GitHub"
+              data-i18n-aria-label="project.techhub.sourceLabel"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&amp;auto=format&amp;fit=crop"
+                alt="Graphics card product image used in the TechHub store"
+                data-i18n-alt="project.techhub.imageAlt"
+                loading="lazy"
+              />
+            </a>
+            <p
+              class="project-card__desc"
+              data-i18n="project.techhub.description"
+            >
+              A Figma-based hardware store demo built with React and Vite, with
+              product browsing and product detail pages.
             </p>
+            <a
+              class="project-readme-link"
+              href="https://github.com/Titanic-bq/TechHub/blob/main/README.md"
+              data-i18n="project.techhub.readme"
+            >
+              Read the README for setup instructions
+            </a>
           </li>
         </ul>
       </div>
@@ -438,9 +478,10 @@
     <section id="contact" class="panel" aria-labelledby="contact-heading">
       <div class="panel__content">
         <h2 id="contact-heading" class="section-title section-title--xl">
-          Get In <span class="teal">Touch</span>
+          <span data-i18n="contact.titlePrefix">Get In </span
+          ><span class="teal" data-i18n="contact.title">Touch</span>
         </h2>
-        <p class="contact-sub">
+        <p class="contact-sub" data-i18n="contact.subtitle">
           Have a project in mind or want to collaborate? I'd love to hear from
           you!
         </p>
@@ -448,8 +489,10 @@
         <div class="contact-layout">
           <!-- ── LEFT: Contact detail cards ── -->
           <div class="contact-info">
-            <h3 class="contact-info__title">Contact Information</h3>
-            <p class="contact-info__sub">
+            <h3 class="contact-info__title" data-i18n="contact.infoTitle">
+              Contact Information
+            </h3>
+            <p class="contact-info__sub" data-i18n="contact.infoText">
               Feel free to reach out through any of the following channels. I
               typically respond within 24 hours.
             </p>
@@ -458,22 +501,15 @@
               <li class="contact-card">
                 <span class="contact-card__icon" aria-hidden="true">
                   <!-- Envelope SVG (Lucide Icons) -->
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <svg class="contact-icon" viewBox="0 0 24 24">
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                   </svg>
                 </span>
                 <div>
-                  <p class="contact-card__label">Email</p>
+                  <p class="contact-card__label" data-i18n="contact.emailLabel">
+                    Email
+                  </p>
                   <a
                     href="mailto:hendrik.jurgenson@voco.ee"
                     class="contact-card__value"
@@ -485,23 +521,16 @@
               <li class="contact-card">
                 <span class="contact-card__icon" aria-hidden="true">
                   <!-- Phone SVG (Lucide Icons) -->
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <svg class="contact-icon" viewBox="0 0 24 24">
                     <path
                       d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
                     />
                   </svg>
                 </span>
                 <div>
-                  <p class="contact-card__label">Phone</p>
+                  <p class="contact-card__label" data-i18n="contact.phoneLabel">
+                    Phone
+                  </p>
                   <a href="tel:+37256291669" class="contact-card__value"
                     >+(372) 56291669</a
                   >
@@ -511,22 +540,18 @@
               <li class="contact-card">
                 <span class="contact-card__icon" aria-hidden="true">
                   <!-- Map pin SVG (Lucide Icons) -->
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
+                  <svg class="contact-icon" viewBox="0 0 24 24">
                     <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </span>
                 <div>
-                  <p class="contact-card__label">Location</p>
+                  <p
+                    class="contact-card__label"
+                    data-i18n="contact.locationLabel"
+                  >
+                    Location
+                  </p>
                   <p class="contact-card__value">Tartu, Estonia</p>
                 </div>
               </li>
@@ -538,16 +563,20 @@
           <form
             class="contact-form"
             aria-label="Send a message"
+            data-i18n-aria-label="contact.formLabel"
             action="https://formspree.io/f/mojbkgkk"
             method="POST"
           >
-            <h3 class="contact-form__title">Send a Message</h3>
+            <h3 class="contact-form__title" data-i18n="contact.formTitle">
+              Send a Message
+            </h3>
 
             <!-- Name row – two inputs side by side -->
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName"
-                  >First name <span aria-hidden="true">*</span></label
+                  ><span data-i18n="contact.firstName">First name</span>
+                  <span aria-hidden="true">*</span></label
                 >
                 <input
                   type="text"
@@ -557,11 +586,13 @@
                   required
                   aria-required="true"
                   placeholder="William"
+                  data-i18n-placeholder="contact.firstNamePlaceholder"
                 />
               </div>
               <div class="form-group">
                 <label for="lastName"
-                  >Last name <span aria-hidden="true">*</span></label
+                  ><span data-i18n="contact.lastName">Last name</span>
+                  <span aria-hidden="true">*</span></label
                 >
                 <input
                   type="text"
@@ -571,13 +602,17 @@
                   required
                   aria-required="true"
                   placeholder="Robert"
+                  data-i18n-placeholder="contact.lastNamePlaceholder"
                 />
               </div>
             </div>
 
             <!-- type="email" triggers the correct mobile keyboard and browser validation -->
             <div class="form-group">
-              <label for="email">Email <span aria-hidden="true">*</span></label>
+              <label for="email"
+                ><span data-i18n="contact.emailLabel">Email</span>
+                <span aria-hidden="true">*</span></label
+              >
               <input
                 type="email"
                 id="email"
@@ -592,7 +627,8 @@
             <!-- rows="5" sets the default visible height of the textarea -->
             <div class="form-group">
               <label for="message"
-                >Message <span aria-hidden="true">*</span></label
+                ><span data-i18n="contact.messageLabel">Message</span>
+                <span aria-hidden="true">*</span></label
               >
               <textarea
                 id="message"
@@ -600,13 +636,14 @@
                 rows="5"
                 required
                 aria-required="true"
-                placeholder="What do I want to ask..."
+                placeholder="What would you like to ask?"
+                data-i18n-placeholder="contact.messagePlaceholder"
               ></textarea>
             </div>
 
             <!-- btn--full stretches the button to full container width -->
             <button type="submit" class="btn btn--teal btn--full">
-              Send Message
+              <span data-i18n="contact.send">Send Message</span>
             </button>
           </form>
         </div>
@@ -621,16 +658,14 @@
       <div class="panel__content panel__content--center">
         <h1 id="home-heading" class="home-name">Hendrik Jürgenson</h1>
         <p class="home-role">Junior Software Developer</p>
-        <p class="home-sub">
-          Select a section from the menu to explore my work, skills, and
-          experience
-        </p>
         <!-- Mouse scroll hint – pure CSS animation, no JavaScript -->
         <div class="scroll-hint" aria-hidden="true">
           <div class="scroll-hint__mouse">
             <div class="scroll-hint__dot"></div>
           </div>
-          <p class="scroll-hint__label">click a section</p>
+          <p class="scroll-hint__label" data-i18n="home.scrollHint">
+            click a section
+          </p>
         </div>
       </div>
     </section>
@@ -639,7 +674,9 @@
          FOOTER  –  
     ──────────────────────────────────────────────────────────── -->
     <footer role="contentinfo">
-      <p>&copy; 2026 Hendrik Jürgenson. All rights reserved.</p>
+      <p data-i18n="footer.copyright">
+        &copy; 2026 Hendrik Jürgenson. All rights reserved.
+      </p>
     </footer>
   </body>
 </html>
