@@ -623,8 +623,40 @@ ol {
 .skill-icon--javascript {
   color: var(--skill-javascript);
 }
-.skill-icon--javascript path {
-  fill: var(--bg);
+.skill-icon--javascript .javascript-logo__text {
+  fill: #111;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+.learning-section {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+.learning-title {
+  margin: 0;
+  color: var(--gray-100);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+}
+.learning-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 9rem));
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+.skill-icon--java {
+  color: #f89820;
+}
+.skill-icon--java path:not(:first-child) {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 .skill-icon--wordpress {
   color: var(--skill-wordpress);

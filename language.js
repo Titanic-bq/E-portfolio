@@ -26,6 +26,7 @@ const translations = {
     "skills.title": "Skills & Tools",
     "skills.intro": "Technologies and tools in my portfolio",
     "skills.listLabel": "Technical skills",
+    "skills.learningTitle": "Currently learning",
     "portfolio.label": "My portfolio",
     "portfolio.titlePrefix": "Recent ",
     "portfolio.title": "Projects",
@@ -73,6 +74,7 @@ const translations = {
     "contact.messagePlaceholder": "What would you like to ask?",
     "contact.send": "Send Message",
     "home.scrollHint": "click a section",
+    "home.role": "Junior Software Developer",
     "footer.copyright": "© 2026 Hendrik Jürgenson. All rights reserved.",
   },
   et: {
@@ -102,6 +104,7 @@ const translations = {
     "skills.title": "oskused ja tööriistad",
     "skills.intro": "Minu oskused, millega olen töötanud ja olen tuttav",
     "skills.listLabel": "Tehnilised oskused",
+    "skills.learningTitle": "Praegu arendan ennast",
     "portfolio.label": "Minu portfoolio",
     "portfolio.titlePrefix": "Hiljutised ",
     "portfolio.title": "projektid",
@@ -146,6 +149,7 @@ const translations = {
     "contact.messagePlaceholder": "Mida soovid küsida?",
     "contact.send": "Saada sõnum",
     "home.scrollHint": "vali menüüst",
+    "home.role": "Noorem tarkvaraarendaja",
     "footer.copyright": "© 2026 Hendrik Jürgenson. Kõik õigused kaitstud.",
   },
 };
