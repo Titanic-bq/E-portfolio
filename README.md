@@ -8,3 +8,9 @@
 - Ühtlustatud portfoolio projektikaartide paigutus ja lisatud projektide eelvaatepildid.
 - Seotud hobilehe ja hotelli nooled nende live-demodega; TechHubi pilt viib GitHubi repositooriumisse.
 - Lisatud TechHubi kaardile README link, kust leiab projekti käivitamisjuhised.
+
+## 08.10.2026
+
+- Uuendatud About-jaotise sisu ning lisatud Hendriku portree.
+- Täiendatud oskuste jaotise eestikeelseid ja ingliskeelseid pealkirju ning kirjeldusi.
+- Asendatud cPaneli oskus Bootstrapiga ja täpsustatud oskuste jaotise kujundust.
