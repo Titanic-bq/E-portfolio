@@ -47,8 +47,19 @@ const translations = {
       label: "My portfolio",
       titlePrefix: "Recent ",
       title: "Projects",
+      filterLabel: "Filter projects",
+      filterAll: "All",
+      filterReact: "React",
+      filterJavaScript: "JavaScript",
+      filterWebDesign: "Web design",
+      filterWordPress: "WordPress",
+      technologyLabel: "Technologies",
     },
     project: {
+      contributionLabel: "My contribution",
+      featuresLabel: "Key features",
+      demoButton: "Live demo",
+      githubButton: "GitHub",
       hobby: {
         sourceLabel: "View My Hobby Website source on GitHub",
         title: "My Hobby Website",
@@ -56,6 +67,10 @@ const translations = {
         imageAlt: "Chess-themed homepage artwork from My Hobby Website",
         description:
           "A personal website showcasing my hobbies and interests. The theme is centered around chess, where I share my passion for the game.",
+        contribution:
+          "Built the chess-themed pages, their styling, and interactive navigation.",
+        features:
+          "Chess-focused content, clear section navigation, and responsive page layouts.",
       },
       hotel: {
         sourceLabel: "View Multiple Page Hotel Website source on GitHub",
@@ -63,17 +78,43 @@ const translations = {
         demoLabel: "Open Multiple Page Hotel Website live demo",
         imageAlt: "Hotel showcase image from the hotel website project",
         description:
-          "A responsive website for a hotel chain with multiple pages, including booking functionality and a modern design.",
+          "A multi-page hotel website demo with home, about, and contact pages, shared navigation, and responsive layouts.",
+        contribution:
+          "Created the multi-page hotel layouts and styled the home, about, and contact pages.",
+        features:
+          "Separate home, about, and contact pages with a shared navigation and responsive layouts.",
       },
-      liveDemoHint: "Leads to live Demo",
       techhub: {
         sourceLabel: "View TechHub source on GitHub",
         title: "TechHub.dk",
-        demoLabel: "Open TechHub live demo",
         imageAlt: "Graphics card product image used in the TechHub store",
         description:
           "A Figma-based hardware store demo built with React and Vite, with product browsing and product detail pages.",
+        contribution:
+          "Worked on product browsing, product search, and product detail views.",
+        features:
+          "A polished electronics-store design with product browsing, search, and product details.",
         readme: "Read the README for setup instructions",
+      },
+      menco: {
+        title: "MenCo – A place suitable for men",
+        demoLabel: "Open MenCo live website",
+        imageAlt: "MenCo watch collection",
+        description:
+          "A WordPress storefront for men's watches, fragrances, and eyewear.",
+        contribution:
+          "Set up and customized the MenCo WordPress storefront, including its products and stories.",
+        features: "A WordPress storefront with product listings, shopping cart, and stories.",
+      },
+      kaevikudilemmad: {
+        title: "Trench Dilemmas",
+        demoLabel: "Open the Kaevikudilemmad live game",
+        imageAlt: "Illustration from the Kaevikudilemmad game",
+        description:
+          "A decision game featuring war themes and dark humor.",
+        contribution: "Tested, designed, and developed the game.",
+        features:
+          "Multiplayer rooms, war-themed scenarios, player voting, and live scores.",
       },
     },
     contact: {
@@ -96,6 +137,14 @@ const translations = {
       messageLabel: "Message",
       messagePlaceholder: "What would you like to ask?",
       send: "Send Message",
+      sending: "Sending your message…",
+      sent: "Your message was sent successfully. Thank you!",
+      sendError:
+        "Your message could not be sent. Please try again or email me directly.",
+    },
+    theme: {
+      switchToLight: "Switch to light theme",
+      switchToDark: "Switch to dark theme",
     },
     home: { scrollHint: "click a section", role: "Junior Software Developer" },
     footer: { copyright: "© 2026 Hendrik Jürgenson. All rights reserved." },
@@ -147,8 +196,19 @@ const translations = {
       label: "Minu portfoolio",
       titlePrefix: "Hiljutised ",
       title: "projektid",
+      filterLabel: "Filtreeri projekte",
+      filterAll: "Kõik",
+      filterReact: "React",
+      filterJavaScript: "JavaScript",
+      filterWebDesign: "Veebidisain",
+      filterWordPress: "WordPress",
+      technologyLabel: "Tehnoloogiad",
     },
     project: {
+      contributionLabel: "Minu panus",
+      featuresLabel: "Põhifunktsioonid",
+      demoButton: "Live-demo",
+      githubButton: "GitHub",
       hobby: {
         sourceLabel: "Ava hobilehe lähtekood GitHubis",
         title: "Minu hobileht",
@@ -156,6 +216,10 @@ const translations = {
         imageAlt: "Male-teemaline pilt hobilehe avalehelt",
         description:
           "Isiklik veebileht, mis tutvustab minu hobisid ja huvisid. Selle keskmes on male ja minu huvi selle mängu vastu.",
+        contribution:
+          "Tegin maleteemalised lehed, nende kujunduse ja interaktiivse navigeerimise.",
+        features:
+          "Malega seotud sisu, selge sektsioonide navigeerimine ja kohanduv kujundus.",
       },
       hotel: {
         sourceLabel: "Ava hotelli veebilehe lähtekood GitHubis",
@@ -163,17 +227,43 @@ const translations = {
         demoLabel: "Ava hotelli veebilehe demo",
         imageAlt: "Hotelli veebilehe esiletõstetud pilt",
         description:
-          "Mobiilisõbralik hotelliketi veebileht mitme lehe, broneerimisfunktsiooni ja nüüdisaegse kujundusega.",
+          "Mitmeleheline hotelli veebilehe demo avalehe, tutvustuse ja kontaktilehe, ühise menüü ning kohanduva kujundusega.",
+        contribution:
+          "Lõin mitmelehelise hotelli veebilehe ning kujundasin avalehe, tutvustuse ja kontaktilehe.",
+        features:
+          "Eraldi avaleht, tutvustus ja kontaktileht ühise menüü ning kohanduva kujundusega.",
       },
-      liveDemoHint: "Avab live-demo",
       techhub: {
         sourceLabel: "Ava TechHubi repositoorium GitHubis",
         title: "TechHub.dk",
-        demoLabel: "Ava TechHubi demo",
         imageAlt: "TechHubi poes kasutatav graafikakaardi tootepilt",
         description:
           "Reacti ja Vitega loodud riistvarapoe demo, mis põhineb Figma projektil ning võimaldab tooteid sirvida ja vaadata nende üksikasju.",
+        contribution:
+          "Tegelesin toodete sirvimise, otsingu ja toote detailvaadetega.",
+        features:
+          "Viimistletud elektroonikapoe kujundus, toodete sirvimine, otsing ja toote detailvaated.",
         readme: "Loe README-failist käivitamisjuhiseid",
+      },
+      menco: {
+        title: "MenCo – koht meestele",
+        demoLabel: "Ava MenCo veebileht",
+        imageAlt: "MenCo käekellade kollektsioon",
+        description:
+          "WordPressi e-pood meeste käekellade, lõhnaõlide ja prillidega.",
+        contribution:
+          "Seadistasin ja kohandasin MenCo WordPressi e-poodi, selle tooteid ja lugusid.",
+        features: "WordPressi e-pood toodete, ostukorvi ja lugudega.",
+      },
+      kaevikudilemmad: {
+        title: "Kaevikudilemmad",
+        demoLabel: "Ava Kaevikudilemmade mäng",
+        imageAlt: "Illustratsioon Kaevikudilemmade mängust",
+        description:
+          "Sõjateemade ja sünge huumoriga otsustusmäng.",
+        contribution: "Testisin, kujundasin ja arendasin mängu.",
+        features:
+          "Mitmikmängu toad, sõjateemalised stsenaariumid, hääletamine ja reaalajas punktitabel.",
       },
     },
     contact: {
@@ -195,6 +285,14 @@ const translations = {
       messageLabel: "Sõnum",
       messagePlaceholder: "Mida soovid küsida?",
       send: "Saada sõnum",
+      sending: "Sõnumi saatmine…",
+      sent: "Sõnum saadeti edukalt. Aitäh!",
+      sendError:
+        "Sõnumi saatmine ebaõnnestus. Proovi uuesti või kirjuta mulle e-postiga.",
+    },
+    theme: {
+      switchToLight: "Lülita sisse hele kujundus",
+      switchToDark: "Lülita sisse tume kujundus",
     },
     home: { scrollHint: "vali menüüst", role: "Noorem tarkvaraarendaja" },
     footer: { copyright: "© 2026 Hendrik Jürgenson. Kõik õigused kaitstud." },
@@ -203,6 +301,11 @@ const translations = {
 
 const getTranslation = (copy, key) =>
   key.split(".").reduce((value, part) => value?.[part], copy);
+window.portfolioText = (key) =>
+  getTranslation(
+    translations[document.documentElement.lang] ?? translations.en,
+    key,
+  );
 
 const applyLanguage = (language) => {
   const copy = translations[language] ?? translations.en;
@@ -227,6 +330,19 @@ const applyLanguage = (language) => {
       if (text !== undefined) element.setAttribute(attribute, text);
     });
   });
+
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  if (themeToggle) {
+    const isLight = document.documentElement.dataset.theme === "light";
+    themeToggle.setAttribute(
+      "aria-label",
+      getTranslation(
+        copy,
+        isLight ? "theme.switchToDark" : "theme.switchToLight",
+      ),
+    );
+    themeToggle.setAttribute("aria-pressed", String(isLight));
+  }
 
   document.querySelectorAll("[data-language]").forEach((button) => {
     button.setAttribute(

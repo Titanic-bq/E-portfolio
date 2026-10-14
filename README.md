@@ -1,5 +1,15 @@
 # E-portfoolio muudatuste ajalugu
 
+## 14.10.2026
+
+- Täiendatud projektikaarte tehnoloogiate, isikliku panuse, põhifunktsioonide ning demo- ja GitHubi linkidega; lisatud tehnoloogiapõhised filtrid.
+- Lisatud MenCo WordPressi e-poe projekt koos live-demo lingi ja WordPressi filtriga.
+- Lisatud GitHubi profiili link, hele/tume kujundus ning sektsioonide kerimisanimatsioonid.
+- Lisatud kontaktivormi laadimis-, õnnestumis- ja veateated ning parandatud telefonilingi `tel:` väärtus.
+- Täiendatud otsingumootorite ja sotsiaalmeedia eelvaadete metaandmeid ning aktiivse navigeerimislingi olekut.
+- Eemaldatud TechHubi live-demo link ning lisatud Kaevikudilemmade mitmikmäng Firebase'i reaalaja andmebaasiga.
+- Eemaldatud projektikaartidelt live-demo selgitustekstid ja hallid noolenupud ning lisatud Kaevikudilemmade avalehe ekraanipilt.
+
 ## 29.09.2026
 
 - Lisatud eesti- ja ingliskeelne keelevalik, mille valik salvestub.

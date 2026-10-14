@@ -11,6 +11,40 @@
       content="Hendrik Jürgenson – Junior Software Developer. Angular, Flutter, NodeJs, AWS and more."
       data-i18n-content="page.description"
     />
+    <meta
+      property="og:title"
+      content="Hendrik Jürgenson | Junior Software Developer"
+      data-i18n-content="page.title"
+    />
+    <meta
+      property="og:description"
+      content="Hendrik Jürgenson – Junior Software Developer. Angular, Flutter, NodeJs, AWS and more."
+      data-i18n-content="page.description"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://titanic-bq.github.io/E-portfolio/"
+    />
+    <meta
+      property="og:image"
+      content="https://titanic-bq.github.io/E-portfolio/img/Hendrik%20J%C3%BCrgenson%20profiilipilt.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Hendrik Jürgenson | Junior Software Developer"
+      data-i18n-content="page.title"
+    />
+    <meta
+      name="twitter:description"
+      content="Hendrik Jürgenson – Junior Software Developer. Angular, Flutter, NodeJs, AWS and more."
+      data-i18n-content="page.description"
+    />
+    <meta
+      name="twitter:image"
+      content="https://titanic-bq.github.io/E-portfolio/img/Hendrik%20J%C3%BCrgenson%20profiilipilt.png"
+    />
 
     <title data-i18n="page.title">
       Hendrik Jürgenson | Junior Software Developer
@@ -29,6 +63,7 @@
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <script src="language.js" defer></script>
+    <script src="site.js" defer></script>
   </head>
   <body>
     <!-- ─────────────────────────────────────────────────────────
@@ -50,6 +85,16 @@
       <button type="button" data-language="en" aria-pressed="true">EN</button>
       <button type="button" data-language="et" aria-pressed="false">ET</button>
     </div>
+    <button
+      class="theme-toggle"
+      type="button"
+      data-theme-toggle
+      aria-pressed="false"
+      aria-label="Switch to light theme"
+      data-i18n-aria-label="theme.switchToLight"
+    >
+      <span aria-hidden="true">◐</span>
+    </button>
 
     <!-- ─────────────────────────────────────────────────────────
          MOBILE MENU 
@@ -169,7 +214,7 @@
         <div class="about-layout">
           <figure class="about-portrait">
             <img
-              src="Hendrik Jürgenson profiilipilt.png"
+              src="img/Hendrik Jürgenson profiilipilt.png"
               alt="Hendrik Jürgenson"
               data-i18n-alt="about.portraitAlt"
             />
@@ -212,6 +257,13 @@
                 class="btn btn--dark"
                 data-i18n="about.projectsButton"
                 >My Projects</a
+              >
+              <a
+                href="https://github.com/Titanic-bq"
+                class="btn btn--dark"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub</a
               >
             </div>
           </div>
@@ -371,36 +423,71 @@
     .
       ═══════════════════════════════════════════════════════════ -->
     <section id="projects" class="panel" aria-labelledby="projects-heading">
-      <div class="panel__content">
+      <div class="panel__content panel__content--wide">
         <p class="section-label" data-i18n="projects.label">My Projects</p>
         <h2 id="projects-heading" class="section-title">
           <span data-i18n="projects.titlePrefix">Recent </span
           ><span class="teal" data-i18n="projects.title">Projects</span>
         </h2>
+        <div
+          class="project-filters"
+          role="group"
+          aria-label="Filter projects"
+          data-i18n-aria-label="projects.filterLabel"
+        >
+          <button
+            class="project-filter is-active"
+            type="button"
+            data-project-filter="all"
+            aria-pressed="true"
+            data-i18n="projects.filterAll"
+          >
+            All
+          </button>
+          <button
+            class="project-filter"
+            type="button"
+            data-project-filter="react"
+            aria-pressed="false"
+            data-i18n="projects.filterReact"
+          >
+            React
+          </button>
+          <button
+            class="project-filter"
+            type="button"
+            data-project-filter="javascript"
+            aria-pressed="false"
+            data-i18n="projects.filterJavaScript"
+          >
+            JavaScript
+          </button>
+          <button
+            class="project-filter"
+            type="button"
+            data-project-filter="web-design"
+            aria-pressed="false"
+            data-i18n="projects.filterWebDesign"
+          >
+            Web design
+          </button>
+          <button
+            class="project-filter"
+            type="button"
+            data-project-filter="wordpress"
+            aria-pressed="false"
+            data-i18n="projects.filterWordPress"
+          >
+            WordPress
+          </button>
+        </div>
 
         <ul class="projects-grid" role="list">
           <!-- Project 1: My hobby website -->
-          <li class="project-card">
-            <div class="project-card__top">
-              <p class="project-card__hint" data-i18n="project.liveDemoHint">
-                Leads to live Demo
-              </p>
-              <a
-                href="https://titanic-bq.github.io/Male-hobileht/"
-                class="project-card__arrow"
-                aria-label="Open My Hobby Website live demo"
-                data-i18n-aria-label="project.hobby.demoLabel"
-              >
-                <!-- Arrow SVG (Lucide Icons) – diagonal arrow-up-right -->
-                <svg
-                  class="project-arrow-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </a>
-            </div>
+          <li
+            class="project-card reveal"
+            data-project-tech="javascript web-design"
+          >
             <h3 class="project-card__title" data-i18n="project.hobby.title">
               My Hobby Website
             </h3>
@@ -421,29 +508,47 @@
               A personal website showcasing my hobbies and interests. The theme
               is centered around chess, where I share my passion for the game.
             </p>
+            <p class="project-detail">
+              <strong data-i18n="project.contributionLabel"
+                >My contribution</strong
+              >
+              <span data-i18n="project.hobby.contribution"></span>
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.featuresLabel">Key features</strong>
+              <span data-i18n="project.hobby.features"></span>
+            </p>
+            <ul
+              class="project-tech-list"
+              aria-label="Technologies"
+              data-i18n-aria-label="projects.technologyLabel"
+            >
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+            </ul>
+            <div class="project-links">
+              <a
+                class="btn btn--teal"
+                href="https://titanic-bq.github.io/Male-hobileht/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.demoButton"
+                >Live demo</a
+              >
+              <a
+                class="btn btn--dark"
+                href="https://github.com/Titanic-bq/Male-hobileht"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.githubButton"
+                >GitHub</a
+              >
+            </div>
           </li>
 
           <!-- Project 2: Multiple page hotel website -->
-          <li class="project-card">
-            <div class="project-card__top">
-              <p class="project-card__hint" data-i18n="project.liveDemoHint">
-                Leads to live Demo
-              </p>
-              <a
-                href="https://titanic-bq.github.io/Mitmeleheline-hotell/Sisu/"
-                class="project-card__arrow"
-                aria-label="Open Multiple Page Hotel Website live demo"
-                data-i18n-aria-label="project.hotel.demoLabel"
-              >
-                <svg
-                  class="project-arrow-icon"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M7 17L17 7M17 7H7M17 7v10" />
-                </svg>
-              </a>
-            </div>
+          <li class="project-card reveal" data-project-tech="web-design">
             <h3 class="project-card__title" data-i18n="project.hotel.title">
               Multiple Page Hotel Website
             </h3>
@@ -464,29 +569,115 @@
               A responsive website for a hotel chain with multiple pages,
               including booking functionality and a modern design.
             </p>
+            <p class="project-detail">
+              <strong data-i18n="project.contributionLabel"
+                >My contribution</strong
+              >
+              <span data-i18n="project.hotel.contribution"></span>
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.featuresLabel">Key features</strong>
+              <span data-i18n="project.hotel.features"></span>
+            </p>
+            <ul
+              class="project-tech-list"
+              aria-label="Technologies"
+              data-i18n-aria-label="projects.technologyLabel"
+            >
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+            <div class="project-links">
+              <a
+                class="btn btn--teal"
+                href="https://titanic-bq.github.io/Mitmeleheline-hotell/Sisu/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.demoButton"
+                >Live demo</a
+              >
+              <a
+                class="btn btn--dark"
+                href="https://github.com/Titanic-bq/Mitmeleheline-hotell"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.githubButton"
+                >GitHub</a
+              >
+            </div>
           </li>
 
-          <!-- Project 3: TechHub -->
-          <li class="project-card">
-            <div class="project-card__top">
-              <div class="project-card__tags"></div>
+          <!-- Project 3: MenCo WordPress store -->
+          <li
+            class="project-card reveal"
+            data-project-tech="wordpress web-design"
+          >
+            <h3 class="project-card__title" data-i18n="project.menco.title">
+              MenCo – A place suitable for men
+            </h3>
+            <a
+              class="project-preview"
+              href="https://vso25jyrgenson.ita.voco.ee/veebirakendus/"
+              aria-label="Open MenCo live website"
+              data-i18n-aria-label="project.menco.demoLabel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://vso25jyrgenson.ita.voco.ee/veebirakendus/wp-content/themes/pixel-watch-center/assets/images/slide-1.png"
+                alt="MenCo watch collection"
+                data-i18n-alt="project.menco.imageAlt"
+                loading="lazy"
+              />
+            </a>
+            <p class="project-card__desc" data-i18n="project.menco.description">
+              A WordPress storefront for men's watches, fragrances, and eyewear.
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.contributionLabel"
+                >My contribution</strong
+              >
+              <span data-i18n="project.menco.contribution"></span>
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.featuresLabel">Key features</strong>
+              <span data-i18n="project.menco.features"></span>
+            </p>
+            <ul
+              class="project-tech-list"
+              aria-label="Technologies"
+              data-i18n-aria-label="projects.technologyLabel"
+            >
+              <li>WordPress</li>
+            </ul>
+            <div class="project-links">
+              <a
+                class="btn btn--teal"
+                href="https://vso25jyrgenson.ita.voco.ee/veebirakendus/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.demoButton"
+                >Live demo</a
+              >
             </div>
+          </li>
+
+          <!-- Project 4: TechHub -->
+          <li
+            class="project-card reveal"
+            data-project-tech="react javascript web-design"
+          >
             <h3 class="project-card__title" data-i18n="project.techhub.title">
               TechHub.dk
             </h3>
-            <a
-              class="project-preview project-preview--no-arrow"
-              href="https://github.com/Titanic-bq/TechHub"
-              aria-label="Open TechHub source on GitHub"
-              data-i18n-aria-label="project.techhub.sourceLabel"
-            >
+            <div class="project-preview project-preview--contain">
               <img
-                src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&amp;auto=format&amp;fit=crop"
+                src="img/TechHub.png"
                 alt="Graphics card product image used in the TechHub store"
                 data-i18n-alt="project.techhub.imageAlt"
                 loading="lazy"
               />
-            </a>
+            </div>
             <p
               class="project-card__desc"
               data-i18n="project.techhub.description"
@@ -494,13 +685,109 @@
               A Figma-based hardware store demo built with React and Vite, with
               product browsing and product detail pages.
             </p>
-            <a
-              class="project-readme-link"
-              href="https://github.com/Titanic-bq/TechHub/blob/main/README.md"
-              data-i18n="project.techhub.readme"
+            <p class="project-detail">
+              <strong data-i18n="project.contributionLabel"
+                >My contribution</strong
+              >
+              <span data-i18n="project.techhub.contribution"></span>
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.featuresLabel">Key features</strong>
+              <span data-i18n="project.techhub.features"></span>
+            </p>
+            <ul
+              class="project-tech-list"
+              aria-label="Technologies"
+              data-i18n-aria-label="projects.technologyLabel"
             >
-              Read the README for setup instructions
+              <li>React</li>
+              <li>JavaScript</li>
+              <li>Vite</li>
+              <li>CSS</li>
+              <li>Node.js API</li>
+            </ul>
+            <div class="project-links">
+              <a
+                class="btn btn--dark"
+                href="https://github.com/Titanic-bq/TechHub"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.githubButton"
+                >GitHub</a
+              >
+            </div>
+          </li>
+
+          <!-- Project 5: Kaevikudilemmad -->
+          <li
+            class="project-card reveal"
+            data-project-tech="javascript web-design"
+          >
+            <h3
+              class="project-card__title"
+              data-i18n="project.kaevikudilemmad.title"
+            >
+              Kaevikudilemmad
+            </h3>
+            <a
+              class="project-preview project-preview--contain"
+              href="https://titanic-bq.github.io/KeavikuDilemmad/"
+              aria-label="Open Kaevikudilemmad live game"
+              data-i18n-aria-label="project.kaevikudilemmad.demoLabel"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="img/Kaevikudilemmad-homepage.png"
+                alt="Illustration from the Kaevikudilemmad game"
+                data-i18n-alt="project.kaevikudilemmad.imageAlt"
+                loading="lazy"
+              />
             </a>
+            <p
+              class="project-card__desc"
+              data-i18n="project.kaevikudilemmad.description"
+            >
+              A browser-based multiplayer dilemma game with real-time rooms.
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.contributionLabel"
+                >My contribution</strong
+              >
+              <span data-i18n="project.kaevikudilemmad.contribution"></span>
+            </p>
+            <p class="project-detail">
+              <strong data-i18n="project.featuresLabel">Key features</strong>
+              <span data-i18n="project.kaevikudilemmad.features"></span>
+            </p>
+            <ul
+              class="project-tech-list"
+              aria-label="Technologies"
+              data-i18n-aria-label="projects.technologyLabel"
+            >
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Firebase Realtime Database</li>
+            </ul>
+            <div class="project-links">
+              <a
+                class="btn btn--teal"
+                href="https://titanic-bq.github.io/KeavikuDilemmad/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.demoButton"
+                >Live demo</a
+              >
+              <a
+                class="btn btn--dark"
+                href="https://github.com/Titanic-bq/KeavikuDilemmad"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="project.githubButton"
+                >GitHub</a
+              >
+            </div>
           </li>
         </ul>
       </div>
@@ -565,7 +852,7 @@
                   <p class="contact-card__label" data-i18n="contact.phoneLabel">
                     Phone
                   </p>
-                  <a href=" tel:+3725629 1669" class="contact-card__value"
+                  <a href="tel:+37256291669" class="contact-card__value"
                     >+(372) 5629 1669</a
                   >
                 </div>
@@ -679,6 +966,13 @@
             <button type="submit" class="btn btn--teal btn--full">
               <span data-i18n="contact.send">Send Message</span>
             </button>
+            <p
+              class="form-status"
+              data-form-status
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
           </form>
         </div>
         <!-- end contact-layout -->
