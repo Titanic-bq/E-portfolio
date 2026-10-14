@@ -50,15 +50,21 @@
       Hendrik Jürgenson | Junior Software Developer
     </title>
 
-    <!-- Preconnect hints speed up the Google Fonts request -->
+    <!-- Load Inter without blocking the first render; system fonts are the fallback. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!-- Inter font – weights 300–900 cover all text styles used in the design -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
 
     <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css" />
