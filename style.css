@@ -1255,6 +1255,18 @@ footer {
   border-color: var(--border);
   background: #e8edf2;
 }
+:root[data-theme="light"] .skill-card {
+  background: var(--bg-card2);
+  border-color: var(--border);
+  color: var(--gray-100);
+}
+:root[data-theme="light"] .skill-card:hover {
+  background: #dce6ed;
+  border-color: #9aaab8;
+}
+:root[data-theme="light"] .skill-icon--react {
+  color: #087ea4;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *,
