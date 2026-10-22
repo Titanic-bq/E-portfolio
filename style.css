@@ -53,7 +53,6 @@
   --voco-ink: #101820;
   --voco-blue: #27bce2;
   --skill-node: #68a063;
-  --skill-mongodb: #47a248;
   --skill-react: #61dafb;
   --skill-html: #e34f26;
   --skill-css: #1572b6;
@@ -647,9 +646,6 @@ body:not(:has(.panel:target)) .sidenav a[href="#home"] {
 }
 .skill-icon--node {
   color: var(--skill-node);
-}
-.skill-icon--mongodb {
-  color: var(--skill-mongodb);
 }
 .skill-icon--react {
   color: var(--skill-react);
@@ -1266,6 +1262,11 @@ footer {
 }
 :root[data-theme="light"] .skill-icon--react {
   color: #087ea4;
+}
+:root[data-theme="light"] .about-portrait img {
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
