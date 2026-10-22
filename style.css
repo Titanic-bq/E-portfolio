@@ -585,6 +585,7 @@ body:not(:has(.panel:target)) .sidenav a[href="#home"] {
   border-radius: 50%;
   object-fit: cover;
   object-position: center 30%;
+  transform: scale(1.1);
 }
 
 /* SKILLS TOOLBOX GRID */
@@ -1264,9 +1265,7 @@ footer {
   color: #087ea4;
 }
 :root[data-theme="light"] .about-portrait img {
-  object-fit: cover;
   object-position: center;
-  transform: scale(1.1);
 }
 
 @media (prefers-reduced-motion: reduce) {
